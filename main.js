@@ -28,6 +28,19 @@ chrome.tabs.onUpdated.addListener(function(tabID, changeInfo, tab) {
   }
 });
 
+chrome.tabs.onAttached.addListener(function(tabId){
+    chrome.tabs.get(tabId, function(tab) {
+      audibleTabs.forEach(function(e){
+        console.log("for each");
+        if(e.id === tabId){
+          console.log("if");
+          audibleTabs[audibleTabs.indexOf(e)] = tab;
+          console.log(audibleTabs.indexOf(tab));
+        }
+      });
+    });
+});
+
 chrome.browserAction.onClicked.addListener(function(tab) {
   chrome.tabs.update(audibleTabs[0].id, {selected: true});
   chrome.windows.update(audibleTabs[0].windowId, {'focused':true});
@@ -42,27 +55,4 @@ chrome.windows.onRemoved.addListener(function(windowID){
     });
 });
 
-chrome.tabs.onAttached.addListener(function(tabId){
-    chrome.tabs.get(tabId, function(tab) {
-      audibleTabs.forEach(function(e){
-        console.log("for each");
-        if(e.id === tabId){
-          console.log("if");
-          audibleTabs[audibleTabs.indexOf(e)] = tab;
-          console.log(audibleTabs.indexOf(tab));
-        }
-      });
-    });
-});
-
 loadExtension();
-// chrome.windows.onFocusChanged.addListener(function(windowID){
-//   loadExtension();
-//   console.log("focus");
-//   console.log(audibleTabs);
-// });
-
-// chrome.windows.onCreated.addListener(function(windowID){
-//   loadExtension();
-//   console.log("pocus");
-// });
