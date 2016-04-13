@@ -1,29 +1,30 @@
 {
   "manifest_version": 2,
   "name": "Sandbox",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "commands": {
       "_execute_browser_action": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+K",
-        "mac": "MacCtrl+Shift+K"
+        "suggested_key": {
+          "default": "Ctrl+Shift+K",
+          "mac": "MacCtrl+Shift+K"
         }
       }
   },
   "background": {
     "scripts": [
-      "main.js"
+      "watch.js","main.js", "background.js", "listeners.js"
       ],
     "persistent": false
   },
   "icons":{
-    "16": "icon2.png",
-		"48": "icon2.png"
+    "16": "icon.png",
+		"48": "icon.png"
   },
   "browser_action": {
    "default_title": "Follow the noize",
-   "default_icon": "icon2.png"
+   "default_icon": "icon.png"
   },
   "permissions": [
+    "tabs"
   ]
 }
