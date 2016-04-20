@@ -12,7 +12,7 @@
   },
   "background": {
     "scripts": [
-      "watch.js","main.js", "background.js", "listeners.js"
+      "watch.js", "helpers.js", "main.js", "background.js", "listeners.js"
       ],
     "persistent": false
   },
