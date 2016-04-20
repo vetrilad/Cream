@@ -3,6 +3,7 @@ chrome.browserAction.onClicked.addListener(function(tab){
 });
 
 chrome.windows.onRemoved.addListener(function(windowID){
+  console.log("removed");
   return remove(windowID);
 });
 

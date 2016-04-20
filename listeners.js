@@ -9,16 +9,21 @@ function attached(tabId){
   });
 }
 
-
 function update(tabID, changeInfo, tab) {
-  if(changeInfo.audible === false) {
-    tabs.audible = tabs.audible.filter(function(tab){
-      return tab.id !== tabID;
-    });
-  } 
-  else if(changeInfo.audible === true) {
-    tabs.audible.push(tab);
-  }
+  var promise = new Promise(function(resolve, reject){
+    if(changeInfo.audible === false) {
+      tabs.audible = tabs.audible.filter(function(tab){
+        return tab.id !== tabID;
+      });
+    } 
+    else if(changeInfo.audible === true) {
+      tabs.audible.push(tab);
+    }
+  });
+  
+  promise.then(
+    console.log("**********************")  
+  );
 }
 
 function action(tab) {
