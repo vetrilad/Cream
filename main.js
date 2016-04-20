@@ -23,14 +23,6 @@ function loadExtension() {
   });
 }
 
-function onRemoved(windowID){
-  tabs.audible = tabs.audible.filter(function(tab){
-      return tab.windowId !== windowID;
-    });
-}
-
-
-
 loadExtension();
 
 console.log("extension loaded");
