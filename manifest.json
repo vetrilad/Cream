@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "Sandbox",
-  "version": "0.0.2",
+  "name": "Cream",
+  "version": "0.1.0",
   "commands": {
       "_execute_browser_action": {
         "suggested_key": {
@@ -17,12 +17,12 @@
     "persistent": false
   },
   "icons":{
-    "16": "icon.png",
-		"48": "icon.png"
+    "16": "prince_icon.png",
+		"48": "prince_icon.png"
   },
   "browser_action": {
    "default_title": "Follow the noize",
-   "default_icon": "icon.png"
+   "default_icon": "prince_icon.png"
   },
   "permissions": [
     "tabs"
