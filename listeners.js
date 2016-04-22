@@ -9,21 +9,41 @@ function attached(tabId){
   });
 }
 
+function removeTab(tabId){
+  var promise = new Promise(function(resolve, reject){
+    tabs.audible = tabs.audible.filter(function(tab){
+      return tab.id !== tabId;
+    });
+    resolve('Closed tab ' + tabId);  
+  })
+
+  promise.then(function(result){
+    console.log(result);
+  });
+}
+
 function update(tabID, changeInfo, tab) {
   var promise = new Promise(function(resolve, reject){
     if(changeInfo.audible === false) {
       tabs.audible = tabs.audible.filter(function(tab){
         return tab.id !== tabID;
       });
+      resolve('Removed tab ' + tabID);
     } 
     else if(changeInfo.audible === true) {
       tabs.audible.push(tab);
+      resolve('Added tab ' + tabID);
+    }
+    else{
+      reject("Nothing happened: ChangeInfo - "+ changeInfo);
     }
   });
   
-  promise.then(
-    console.log("**********************")  
-  );
+  promise.then(function(result){
+    console.log(result);
+  }, function(err){
+    console.log(err);
+  });
 }
 
 function action(tab) {
