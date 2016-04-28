@@ -1,7 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "Sandbox",
-  "version": "0.0.2",
+  "name": "Cream",
+  "version": "0.1.1",
+  "description": "Clicking on the extension icon will get you to the obscure noisy tab - simples. Click several times to get through all of them.",
   "commands": {
       "_execute_browser_action": {
         "suggested_key": {
@@ -12,17 +13,18 @@
   },
   "background": {
     "scripts": [
-      "watch.js", "helpers.js", "main.js", "background.js", "listeners.js"
+      "main.js", "background.js", "listeners.js"
       ],
     "persistent": false
   },
   "icons":{
-    "16": "icon.png",
-		"48": "icon.png"
+    "16": "icon16.png",
+		"48": "icon48.png",
+    "128": "icon128.png"
   },
   "browser_action": {
    "default_title": "Follow the noize",
-   "default_icon": "icon.png"
+   "default_icon": "icon48.png"
   },
   "permissions": [
     "tabs"
