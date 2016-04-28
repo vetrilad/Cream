@@ -13,18 +13,18 @@
   },
   "background": {
     "scripts": [
-      "main.js", "background.js", "listeners.js"
+      "lib/main.js", "lib/background.js", "lib/listeners.js"
       ],
     "persistent": false
   },
   "icons":{
-    "16": "icon16.png",
-		"48": "icon48.png",
-    "128": "icon128.png"
+    "16": "img/icon16.png",
+		"48": "img/icon48.png",
+    "128": "img/icon128.png"
   },
   "browser_action": {
    "default_title": "Follow the noize",
-   "default_icon": "icon48.png"
+   "default_icon": "img/icon48.png"
   },
   "permissions": [
     "tabs"
