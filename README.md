@@ -1,3 +1,5 @@
+![Cream](http://i.imgur.com/78lqwrj.jpg)
+
 # Cream - follow your noizy tabs
 
 This is a very lightweight javascript application made just to keep track of your audible tabs. I don't know why chrome has not yet included this feature in its production release. 
