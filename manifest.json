@@ -12,9 +12,7 @@
       }
   },
   "background": {
-    "scripts": [
-      "lib/main.js", "lib/background.js", "lib/listeners.js"
-      ],
+    "scripts": [ "bin/app.bundle.js" ],
     "persistent": false
   },
   "icons":{
