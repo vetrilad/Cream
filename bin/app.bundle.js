@@ -73,17 +73,15 @@
 "use strict";
 
 
-function startBackground(tabs) {
+function start(tabs) {
   chrome.tabs.query({ "audible": true }, function (allTabs) {
     if (allTabs[0]) {
       tabs.audible = tabs.audible.concat(allTabs);
     }
   });
-
-  return tabs;
 };
 
-module.exports = { startBackground: startBackground };
+module.exports = { start: start };
 
 /***/ }),
 /* 1 */
@@ -176,50 +174,34 @@ module.exports = startListener;
 "use strict";
 
 
-// var tabs = {
-//   audible: []
-// };
-//
-// function arrayRotate(arr) {
-//   arr.unshift(arr.pop());
-//   return arr;
-// };
-//
-// function loadExtension() {
-//     chrome.tabs.query({"audible": true}, function (allTabs) {
-//     if(allTabs[0]) {
-//       tabs.audible = tabs.audible.concat(allTabs);
-//     }
-//   });
-// };
-
 var tabs = {
   audible: []
 };
 
-var startListeners = __webpack_require__(1);
-var startBackground = __webpack_require__(0);
+var listeners = __webpack_require__(1);
+var background = __webpack_require__(0);
 
-tabs = startBackground.startBackground(tabs);
+background.start(tabs);
 
 chrome.browserAction.onClicked.addListener(function (tab) {
-  return startListeners(tabs).action(tab);
+  console.log(tabs);
+  return listeners(tabs).action(tab);
 });
 
 chrome.windows.onRemoved.addListener(function (windowID) {
-  return startListeners(tabs).remove(windowID);
+  return listeners(tabs).remove(windowID);
 });
 
 chrome.tabs.onUpdated.addListener(function (tabID, changeInfo, tab) {
-  return startListeners(tabs).update(tabID, changeInfo, tab);
+  return listeners(tabs).update(tabID, changeInfo, tab);
 });
 
 chrome.tabs.onAttached.addListener(function (tabId) {
-  return startListeners(tabs).attached(tabId);
+  return listeners(tabs).attached(tabId);
 });
 
 chrome.tabs.onRemoved.addListener(function (tabId, removeInfo) {
-  return startListeners(tabs).removeTab(tabId);
+  return listeners(tabs).removeTab(tabId);
 });
 
 /***/ })
